@@ -5,7 +5,7 @@ import { CheckCircle } from '@mui/icons-material';
 
 import { demoProfilePicture } from '../utils/constants';
 
-const ChannelCard = ({ channelDetail }) => (
+const ChannelCard = ({ channelDetail, marginTop }) => (
   <Box
     sx={{
       boxShadow: 'none',
@@ -15,7 +15,8 @@ const ChannelCard = ({ channelDetail }) => (
       alignItems: 'center',
       width: { xs: '356px', md: '320px' },
       height: '320px',
-      margin: 'auto'
+      margin: 'auto',
+      marginTop
     }}
   >
     <Link to={`/channel/${channelDetail?.id?.channelId}`}>
@@ -34,7 +35,9 @@ const ChannelCard = ({ channelDetail }) => (
           <CheckCircle sx={{ fontSize: 14, color: 'gray', ml: '5px' }} />
         </Typography>
         {channelDetail?.statistics?.subscriberCount && (
-          <Typography>
+          <Typography sx={{
+            color: 'white'
+          }}>
             {parseInt(channelDetail?.statistics?.subscriberCount).toLocaleString()} Subscribers
           </Typography>
         )}
